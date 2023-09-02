@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block hero %}{% endblock hero %}
+
+
+
+{% block content %}
+  {% if resume %}
+<body class="bg-base-200">
+
+<div class="px-20 mt-2 ">
+    <img src="{{ resume.file.url }}" alt="" class="w-1/2 mx-auto">
+</div>
+
+
+
+
+  {% else %}
+    <p>No resume available.</p>
+
+  {% endif %}
+
+</body>
+
+{% endblock %}
+

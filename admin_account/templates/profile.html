@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block hero %}{% endblock hero %}
+
+
+
+{% block content %}
+<h1>User Profile</h1>
+
+
+
+{% if is_admin %}
+    <form method="post" style='width:50%;margin:auto'>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Save changes" class='btn btn-primary text-black'>
+    </form>
+
+{% else %} {{ form|crispy }}
+
+
+
+{% endif %}
+{% endblock content %}
