@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+
+
+{% block hero %}{% endblock hero %}
+
+{% block content %}
+<div style='width:50%;margin:auto'>
+
+
+    {{ form|crispy }}
+</div>
+{% endblock content %}

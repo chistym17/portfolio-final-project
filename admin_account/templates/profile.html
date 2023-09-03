@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
 
@@ -6,21 +6,23 @@
 
 
 
+
 {% block content %}
-<h1>User Profile</h1>
-
-
+<div style='width:50%;margin:auto'>
 
 {% if is_admin %}
-    <form method="post" style='width:50%;margin:auto'>
+    <form method="post">
+        <h1 class="font-bold text-4xl mb-4 mt-3">My Profile</h1>
         {% csrf_token %}
-        {{ form|crispy }}
-        <input type="submit" value="Save changes" class='btn btn-primary text-black'>
+        {% if form %}
+            {{ form|crispy }}
+            <input type="submit" value="Save changes" class='btn btn-primary text-black'>
+        {% else %}
+            <p>You are not authorized to edit this profile.</p>
+        {% endif %}
     </form>
-
-{% else %} {{ form|crispy }}
-
-
-
+{% else %}
+    {{ form|crispy }}
 {% endif %}
+</div>
 {% endblock content %}

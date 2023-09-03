@@ -28,14 +28,19 @@
         <a href='{% url 'homepage'  %}' class="px-4 py-2 ml-3 bg-blue-500 text-white 
              rounded-xl hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 ">Home</a>
 
-        <a href='{% url 'profile'  %}' class="px-4 py-2 ml-3 bg-blue-500 text-white rounded-xl 
+ {% if user.is_authenticated %}
+       <a href='{% url 'profile'  %}' class="px-4 py-2 ml-3 bg-blue-500 text-white rounded-xl 
 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Profile</a>
 
-<button class="px-4 py-2 ml-3 bg-blue-500 text-white rounded-xl hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
-  Click me
-</button>
+{% else %}
+       <a href='{% url 'viewprofile'  %}' class="px-4 py-2 ml-3 bg-blue-500 text-white rounded-xl 
+hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Profile</a>
 
-     <a href='{% url 'profile'  %}' class="px-4 py-2 ml-3 bg-blue-500 text-white rounded-xl 
+
+
+{% endif %}
+
+     <a href='{% url 'projectlist'  %}' class="px-4 py-2 ml-3 bg-blue-500 text-white rounded-xl 
 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Projects</a>
 
   <a href='{% url 'resume'  %}' class="px-4 py-2 ml-3 bg-blue-500 text-white rounded-xl 
@@ -47,9 +52,10 @@ hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Blog</a>
 
   </div>
 
+ 
+
 
 {% if user.is_authenticated %}
-    <!-- Show the Logout button if the user is authenticated -->
         <li><a href='{% url 'logout' %}' class="px-4 py-2 ml-3 bg-blue-500 text-white 
 rounded-xl hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
 Log Out </a> </li>
@@ -60,6 +66,14 @@ Log Out </a> </li>
 >Log In</a></li>
 
 {% endif %}
+
+
+
+
+
+
+  </div>
+
 
 
 
@@ -95,9 +109,15 @@ Log Out </a> </li>
 
 </div>
     <div>
-      <h1 class="text-5xl font-bold">Mat Hardy</h1>
+      <h1 class="text-5xl font-bold">MCHISTY</h1>
    <p class="py-6">I'm a software developer looking to collaborate with other teams. <br> Let's build amazing projects together!</p>
-      <button class="btn btn-primary">Get Started</button>
+      <button class="btn btn-primary">
+
+<a href='{% url 'resume'  %}' class="px-4 py-2 ml-3  text-white rounded-xl 
+">Show Resume</a>
+
+
+    </button>
     </div>
   </div>
 </div>
@@ -125,7 +145,7 @@ Log Out </a> </li>
   
 <section class="bg-gray-100 py-8">
   <div class="container mx-auto">
-    <h2 class="text-3xl font-semibold text-center mb-4">Skills</h2>
+    <h2 class="text-3xl font-semibold text-center mb-4"><span class="font-bold ">Programming </span> Skills</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <!-- Skill Item: HTML -->
       <div class="bg-white p-4 rounded-lg shadow-md">
@@ -159,15 +179,16 @@ Log Out </a> </li>
         <p class="text-gray-700">Proficient in database design and management using MySQL.</p>
       </div>
 
-      <!-- Skill Item: Python -->
       <div class="bg-white p-4 rounded-lg shadow-md">
         <h3 class="text-xl font-semibold mb-2">Python</h3>
         <p class="text-gray-700">Skilled in Python programming, including data analysis and scripting.</p>
       </div>
 
-      <!-- Add more skill items for your other skills -->
     </div>
   </div>
+
+ 
+
 </section>
 
 
