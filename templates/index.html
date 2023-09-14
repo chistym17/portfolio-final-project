@@ -21,8 +21,9 @@
 
 <header>
 
+{% comment %} bg-[#F9F6E2] {% endcomment %}
 
-<div class="navbar bg-[#F9F6E2]">
+<div class="navbar ">
   <div class="flex-1">
     <a class="btn btn-ghost normal-case text-4xl"><span class="font-bold">Port</span>folio</a>
         <a href='{% url 'homepage'  %}' class="px-4 py-2 ml-3 bg-blue-500 text-white 
@@ -47,13 +48,13 @@ hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Projects<
 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Show Resume</a>
 
 
-  <a href='{% url 'blog'  %}' class="px-4 py-2 ml-3 bg-blue-500 text-white rounded-xl 
-hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Blog</a>
+  <!-- <a href='{% url 'blog'  %}' class="px-4 py-2 ml-3 bg-blue-500 text-white rounded-xl 
+hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Blog</a> -->
 
   </div>
 
  
-
+<!-- 
 
 {% if user.is_authenticated %}
         <li><a href='{% url 'logout' %}' class="px-4 py-2 ml-3 bg-blue-500 text-white 
@@ -66,7 +67,7 @@ Log Out </a> </li>
 >Log In</a></li>
 
 {% endif %}
-
+ -->
 
 
 
@@ -100,8 +101,10 @@ Log Out </a> </li>
 
 {% block hero %}
 
+<div class="mx-auto ">
 
-<div class="hero min-h-[70vh] bg-[#F9F6E2]">
+
+<div class="hero min-h-[70vh] bg-emerald-300">
   <div class="hero-content flex-col lg:flex-row-reverse">
    <div class="w-64 h-64 rounded-full overflow-hidden">
     <img src="{% static './images/jurica-koletic-7YVZYZeITc8-unsplash.jpg' %}" class="object-cover w-full h-full" />
@@ -123,6 +126,8 @@ Log Out </a> </li>
 </div>
 
 
+
+</div>
 
 {% endblock hero %}
 

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block hero %}{% endblock hero %}
 
@@ -16,15 +17,26 @@
                 <p>{{ project.description }}</p>
                 <p class="font-semibold">Technology Used:</p>
                 <p>{{ project.technologies_used }}</p>
-                <p class="font-semibold">Average Rating:</p>
-                {% if project.average_rating %}
+                {% comment %} <p class="font-semibold">Average Rating:</p> {% endcomment %}
+                {% comment %} {% if project.average_rating %}
                 <p>{{ project.average_rating|floatformat:1 }}</p> <!-- Display average rating with one decimal place -->
                 {% else %}
                 <p>No ratings yet</p>
-                {% endif %}
+                {% endif %} {% endcomment %}
                 <button class="btn btn-primary">
                     <a href="{{ project.project_url }}">Visit Project</a>
                 </button>
+            
+
+             {% comment %} <h2>Rate This Project</h2>
+              <form method="post" action="{% url 'projectlist' %}">
+               {% csrf_token %}
+               {{ form|crispy }}
+              <input type="hidden" name="project_id" value="{{ project.id }}">
+
+             <button type="submit">Submit</button>
+            </form> {% endcomment %}
+
             </div>
         </div>
         {% endfor %}
