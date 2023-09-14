@@ -24,7 +24,7 @@ urlpatterns = [
     path('account/',include('admin_account.urls')),
     path('projects/',include('projects.urls')),
     path('resume/',include('resume.urls')),
-    path('blog/',include('blog.urls'))
-
+    path('blog/',include('blog.urls')),
+     path('skills/',include('skills.urls'))
 ] + static (settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
